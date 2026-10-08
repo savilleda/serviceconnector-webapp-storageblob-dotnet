@@ -1,10 +1,24 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Laboratorio Blob Storage";
 }
 
 <div class="text-center">
-    <h1 class="display-4">@Html.DisplayFor(IndexModel => IndexModel.DisplayWords)</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Subir Imagen a Azure Blob Storage</h1>
+    
+    <form method="post" enctype="multipart/form-data" class="mt-4">
+        <div class="form-group mb-3">
+            <input type="file" name="image" class="form-control" accept="image/*" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Subir a Blob Storage</button>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.ImageBase64))
+    {
+        <div class="mt-4">
+            <h3>Imagen recuperada del Blob Storage:</h3>
+            <img src="data:@Model.ImageContentType;base64,@Model.ImageBase64" class="img-fluid style="max-width: 500px;" alt="Imagen subida" />
+        </div>
+    }
 </div>
