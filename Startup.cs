@@ -73,7 +73,7 @@ namespace WebStorageSample
             endpoints.MapGet("/api/info", () =>
             Results.Ok(new
             {
-                application = "WebStorageSample SAVR MIA 2026",
+                application = "MIA 2026 Sebastian Villeda",
                 description = "Aplicación de ejemplo para Azure Blob Storage",
                 version = "1.0.0"
             }))
